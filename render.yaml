@@ -1,0 +1,38 @@
+# Local Fame deployment blueprint for Render
+# Use with: render blueprint launch
+
+services:
+  - type: web
+    name: local-fame-api
+    env: docker
+    plan: starter
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: ACCESS_TOKEN_EXP_MINUTES
+        value: "60"
+
+  - type: worker
+    name: local-fame-worker
+    env: docker
+    plan: starter
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    dockerCommand: python scripts/worker.py
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: ACCESS_TOKEN_EXP_MINUTES
+        value: "60"
