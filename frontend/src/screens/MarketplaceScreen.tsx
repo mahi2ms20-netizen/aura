@@ -57,7 +57,7 @@ export function MarketplaceScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Local Brand Marketplace</Text>
+      <Text style={styles.title}>Brand Marketplace</Text>
       <Pressable style={styles.btn} onPress={runMatch}>
         <Text style={styles.btnText}>Refresh Matches</Text>
       </Pressable>
@@ -94,3 +94,4 @@ const styles = StyleSheet.create({
   meta: { marginTop: 6, color: colors.muted },
   score: { marginTop: 8, color: colors.accent, fontWeight: "700" },
 });
+

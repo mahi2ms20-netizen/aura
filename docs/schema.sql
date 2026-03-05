@@ -1,4 +1,4 @@
--- PostgreSQL + PostGIS schema for Local Fame
+-- PostgreSQL + PostGIS schema for AURA
 CREATE EXTENSION IF NOT EXISTS postgis;
 
 CREATE TABLE users (
@@ -122,3 +122,4 @@ CREATE TABLE trend_snapshots (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 CREATE INDEX idx_trend_city_period ON trend_snapshots (city, period_end DESC);
+

@@ -1,6 +1,6 @@
-# Local Fame - Discover Influencers Near You
+# AURA - Influence Mapped
 
-Local Fame is a mobile-first platform to discover creators geographically, rank local influence, detect rising stars, and connect creators with brands.
+AURA is a mobile-first platform to discover creators geographically, rank local influence, detect rising stars, and connect creators with brands.
 
 ## What is Included
 - Architecture and plan: `docs/architecture.md`
@@ -60,3 +60,4 @@ Run worker in another terminal:
 - JWT auth + RBAC
 - Redis background jobs for score recompute and daily notifications
 - Admin web controls for job triggers
+

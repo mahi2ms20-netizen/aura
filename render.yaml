@@ -1,4 +1,4 @@
-# Local Fame deployment blueprint for Render
+# AURA deployment blueprint for Render
 # Use with: render blueprint launch
 
 services:
@@ -36,3 +36,4 @@ services:
         sync: false
       - key: ACCESS_TOKEN_EXP_MINUTES
         value: "60"
+

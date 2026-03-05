@@ -1,9 +1,9 @@
-# Local Fame Architecture and Implementation Plan
+# AURA Architecture and Implementation Plan
 
 ## 1) System Architecture
 
 ### Product Scope
-Local Fame is a mobile-first, location-aware discovery platform that ranks and surfaces creators, rising stars, and local influencer opportunities for users and brands.
+AURA is a mobile-first, location-aware discovery platform that ranks and surfaces creators, rising stars, and local influencer opportunities for users and brands.
 
 ### High-Level Components
 - Mobile App (React Native + Expo): map, feed, creator dashboards, collaboration finder, brand marketplace.
@@ -86,3 +86,4 @@ Main API groups:
 4. Mobile app with 5 primary screens
 5. Dockerized local infra
 6. Deployment and scaling guides
+

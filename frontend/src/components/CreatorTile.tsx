@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import { colors } from '../theme/colors';
-import { CreatorCard } from '../types';
+import { colors } from "../theme/colors";
+import { CreatorCard } from "../types";
 
 export function CreatorTile({ creator }: { creator: CreatorCard }) {
   return (
@@ -11,8 +11,8 @@ export function CreatorTile({ creator }: { creator: CreatorCard }) {
         <Text style={styles.name}>{creator.display_name}</Text>
         <Text style={styles.score}>{creator.fame_score}</Text>
       </View>
-      <Text style={styles.meta}>@{creator.handle} • {creator.category} • {creator.distance_km} km</Text>
-      <Text style={styles.meta}>{Math.round(creator.engagement_rate * 100)}% ER • {creator.follower_count.toLocaleString()} followers</Text>
+      <Text style={styles.meta}>@{creator.handle} - {creator.category} - {creator.distance_km} km</Text>
+      <Text style={styles.meta}>{Math.round(creator.engagement_rate * 100)}% ER - {creator.follower_count.toLocaleString()} followers</Text>
       {creator.rising_star ? <Text style={styles.badge}>Rising Creator Near You</Text> : null}
     </View>
   );
@@ -25,29 +25,29 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     padding: 14,
-    marginBottom: 10
+    marginBottom: 10,
   },
   row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   name: {
     fontSize: 16,
-    fontWeight: '700',
-    color: colors.text
+    fontWeight: "700",
+    color: colors.text,
   },
   score: {
     color: colors.primary,
-    fontWeight: '700'
+    fontWeight: "800",
   },
   meta: {
     marginTop: 4,
-    color: colors.muted
+    color: colors.muted,
   },
   badge: {
     marginTop: 8,
     color: colors.accent,
-    fontWeight: '700'
-  }
+    fontWeight: "700",
+  },
 });

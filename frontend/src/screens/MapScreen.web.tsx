@@ -14,18 +14,20 @@ export function MapScreen() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <ActivityIndicator style={{ flex: 1 }} />;
+  if (loading) return <ActivityIndicator color={colors.primary} style={{ flex: 1 }} />;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Influencer Map (Web List Mode)</Text>
+      <Text style={styles.title}>Live Map Discovery</Text>
+      <Text style={styles.sub}>Creator aura bubbles around your current zone</Text>
       <FlatList
         data={creators}
         keyExtractor={(i) => i.id}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
+        renderItem={({ item, index }) => (
+          <View style={[styles.card, index === 0 && styles.hotCard]}>
             <Text style={styles.name}>{item.display_name} (@{item.handle})</Text>
-            <Text style={styles.meta}>{item.category} • {item.distance_km} km • Fame {item.fame_score}</Text>
+            <Text style={styles.meta}>{item.category} - {item.distance_km} km - Aura Score {item.fame_score}</Text>
+            <Text style={styles.zone}>{item.zone}</Text>
           </View>
         )}
       />
@@ -35,8 +37,11 @@ export function MapScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.bg, padding: 14 },
-  title: { fontSize: 20, fontWeight: "700", color: colors.text, marginBottom: 12 },
-  card: { backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1, borderRadius: 12, padding: 12, marginBottom: 10 },
+  title: { fontSize: 22, fontWeight: "800", color: colors.text, marginBottom: 4 },
+  sub: { color: colors.muted, marginBottom: 12 },
+  card: { backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1, borderRadius: 14, padding: 12, marginBottom: 10 },
+  hotCard: { borderColor: colors.warm, backgroundColor: colors.surface2 },
   name: { fontWeight: "700", color: colors.text },
-  meta: { marginTop: 4, color: colors.muted }
+  meta: { marginTop: 4, color: colors.muted },
+  zone: { marginTop: 8, color: colors.primary, fontWeight: "700" },
 });

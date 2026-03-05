@@ -53,13 +53,13 @@ export function AdminScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Admin Controls</Text>
-      <Text style={styles.meta}>Use this tab to trigger async platform jobs.</Text>
+      <Text style={styles.title}>AURA Controls</Text>
+      <Text style={styles.meta}>Trigger real-time jobs for feed and score refresh.</Text>
       <Pressable style={styles.btn} onPress={queueDaily} disabled={busy}>
         <Text style={styles.btnText}>Queue Daily Viral Notification</Text>
       </Pressable>
       <Pressable style={styles.btnAlt} onPress={recomputeFirst} disabled={busy}>
-        <Text style={styles.btnAltText}>Queue Fame Recompute (Nearest Creator)</Text>
+        <Text style={styles.btnAltText}>Queue Aura Score Recompute</Text>
       </Pressable>
       {msg ? <Text style={styles.msg}>{msg}</Text> : null}
     </View>
@@ -68,11 +68,11 @@ export function AdminScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.bg, padding: 14 },
-  title: { fontSize: 20, fontWeight: "700", color: colors.text, marginBottom: 8 },
+  title: { fontSize: 22, fontWeight: "800", color: colors.text, marginBottom: 8 },
   meta: { color: colors.muted, marginBottom: 12 },
   btn: { backgroundColor: colors.primary, borderRadius: 10, padding: 12, marginBottom: 10 },
-  btnText: { color: "#fff", fontWeight: "700", textAlign: "center" },
-  btnAlt: { backgroundColor: "#fff", borderColor: colors.border, borderWidth: 1, borderRadius: 10, padding: 12 },
+  btnText: { color: "#13110f", fontWeight: "800", textAlign: "center" },
+  btnAlt: { backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1, borderRadius: 10, padding: 12 },
   btnAltText: { color: colors.text, fontWeight: "700", textAlign: "center" },
   msg: { marginTop: 12, color: colors.accent, fontWeight: "700" },
 });

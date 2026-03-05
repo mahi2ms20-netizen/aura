@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 
 class Settings(BaseModel):
-    app_name: str = "Local Fame API"
+    app_name: str = "AURA API"
     app_version: str = "0.2.0"
     api_prefix: str = "/api/v1"
     database_url: str = os.getenv("DATABASE_URL", "postgresql+psycopg://postgres:postgres@localhost:5432/localfame")
@@ -14,3 +14,4 @@ class Settings(BaseModel):
 
 
 settings = Settings()
+
