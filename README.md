@@ -7,9 +7,12 @@ Local Fame is a mobile-first platform to discover creators geographically, rank 
 - Database schema: `docs/schema.sql`
 - API specification: `docs/api.md`
 - Deployment and scaling strategy: `docs/deployment.md`
+- Security checklist: `docs/security-checklist.md`
 - FastAPI backend: `backend/`
 - Expo React Native frontend: `frontend/`
 - Docker compose infra: `infra/docker-compose.yml`
+- Production deploy compose: `infra/docker-compose.prod.yml`
+- Render blueprint: `infra/render.yaml`
 
 ## Backend Setup
 1. `cd backend`
@@ -28,11 +31,15 @@ Run worker in another terminal:
 - admin: `admin@localfame.app` / `admin1234`
 - brand: `brand@localfame.app` / `brand1234`
 
-## Frontend Setup
+## Frontend Setup (Web)
 1. `cd frontend`
 2. `npm install`
 3. Set `EXPO_PUBLIC_API_URL=http://localhost:8000/api/v1`
-4. `npm run start`
+4. `npm run web`
+
+## CI
+- Backend CI: `.github/workflows/backend-ci.yml`
+- Frontend CI: `.github/workflows/frontend-ci.yml`
 
 ## Local Docker Setup
 1. `docker compose -f infra/docker-compose.yml up --build`
@@ -52,3 +59,4 @@ Run worker in another terminal:
 - Fame score algorithm and score breakdown endpoint
 - JWT auth + RBAC
 - Redis background jobs for score recompute and daily notifications
+- Admin web controls for job triggers
