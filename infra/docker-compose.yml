@@ -1,0 +1,43 @@
+services:
+  api:
+    build:
+      context: ../backend
+    container_name: local-fame-api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - DATABASE_URL=postgresql+psycopg://postgres:postgres@postgres:5432/localfame
+      - REDIS_URL=redis://redis:6379/0
+      - JWT_SECRET=local-fame-dev-secret
+
+  worker:
+    build:
+      context: ../backend
+    container_name: local-fame-worker
+    depends_on:
+      - postgres
+      - redis
+    command: ["python", "scripts/worker.py"]
+    environment:
+      - DATABASE_URL=postgresql+psycopg://postgres:postgres@postgres:5432/localfame
+      - REDIS_URL=redis://redis:6379/0
+      - JWT_SECRET=local-fame-dev-secret
+
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: local-fame-postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=localfame
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: local-fame-redis
+    ports:
+      - "6379:6379"

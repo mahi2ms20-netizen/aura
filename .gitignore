@@ -1,0 +1,29 @@
+# Node
+node_modules/
+frontend/node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Expo
+.expo/
+frontend/.expo/
+frontend/web-build/
+
+# Logs
+*.log
